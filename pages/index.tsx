@@ -1,7 +1,10 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import { getGithubPreviewProps, parseJson } from "next-tinacms-github";
+import { GetStaticProps } from "next";
+import styles from "../styles/Home.module.css";
 
-export default function Home() {
+export default function Home({ file }) {
+  const data = file.data;
   return (
     <div className={styles.container}>
       <Head>
@@ -10,12 +13,10 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        <h1 className={styles.title}>{data.title}</h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
+          Get started by editing{" "}
           <code className={styles.code}>pages/index.js</code>
         </p>
 
@@ -32,16 +33,14 @@ export default function Home() {
 
           <a
             href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
+            className={styles.card}>
             <h3>Examples &rarr;</h3>
             <p>Discover and deploy boilerplate example Next.js projects.</p>
           </a>
 
           <a
             href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
+            className={styles.card}>
             <h3>Deploy &rarr;</h3>
             <p>
               Instantly deploy your Next.js site to a public URL with Vercel.
@@ -54,12 +53,35 @@ export default function Home() {
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
+          rel="noopener noreferrer">
+          Powered by{" "}
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
     </div>
-  )
+  );
 }
+
+export const getStaticProps: GetStaticProps = async function ({
+  preview,
+  previewData,
+}) {
+  if (preview) {
+    return getGithubPreviewProps({
+      ...previewData,
+      fileRelativePath: "content/home.json",
+      parse: parseJson,
+    });
+  }
+  return {
+    props: {
+      sourceProvider: null,
+      error: null,
+      preview: false,
+      file: {
+        fileRelativePath: "content/home.json",
+        data: (await import("../data/home.json")).default,
+      },
+    },
+  };
+};
