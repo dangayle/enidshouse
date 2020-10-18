@@ -62,18 +62,14 @@ export default function Home({ file }) {
   );
 }
 
+/*
+ ** Fetch data with getStaticProps based on 'preview' mode
+ */
 export const getStaticProps: GetStaticProps = async function ({
   preview,
   previewData,
 }) {
-  if (preview) {
-    return getGithubPreviewProps({
-      ...previewData,
-      fileRelativePath: "content/home.json",
-      parse: parseJson,
-    });
-  }
-  return {
+  const defaultReturn = {
     props: {
       sourceProvider: null,
       error: null,
@@ -84,4 +80,13 @@ export const getStaticProps: GetStaticProps = async function ({
       },
     },
   };
+
+  if (preview) {
+    return getGithubPreviewProps({
+      ...previewData,
+      fileRelativePath: "content/home.json",
+      parse: parseJson,
+    });
+  }
+  return defaultReturn;
 };
