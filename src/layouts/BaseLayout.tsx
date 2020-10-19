@@ -21,7 +21,7 @@ export const BaseLayout: React.FC<{ bodyBg?: any }> = ({
         />
       </div>
       {bodyBg && (
-        <style jsx="true">{`
+        <style jsx={true}>{`
             .root{
               background-image: url(${bodyBg});
             }
