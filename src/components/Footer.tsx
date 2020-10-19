@@ -4,7 +4,7 @@ import { EditLink } from "../components/EditLink";
 const Footer = () => {
   const cms = useCMS();
   return (
-    <footer className="mt-auto bg-white bg-opacity-50 text-xs font-sans">
+    <footer className="mt-auto bg-white bg-opacity-50 text-xs font-sans text-gray-700">
       <div className="container mx-auto flex p-4">
         <div>
           <span>

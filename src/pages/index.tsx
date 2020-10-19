@@ -7,6 +7,7 @@ import {
 import { getGithubPreviewProps, parseJson } from "next-tinacms-github";
 import { GetStaticProps } from "next";
 import { BaseLayout } from "../layouts/BaseLayout";
+import Contact from "../components/Contact";
 
 const Home = ({ file }) => {
   const formOptions = {
@@ -18,7 +19,14 @@ const Home = ({ file }) => {
   useGithubToolbarPlugins();
   return (
     <BaseLayout bodyBg="/welsh-lakelands.jpg">
-      <h1>{data.title}</h1>
+      <div className="flex">
+        <div className="lg:ml-auto lg:w-2/3 w-full p-8">
+          <h1 className="text-2xl lg:text-4xl xl:text-6xl mb-8 text-center">
+            {data.title}
+          </h1>
+          <Contact />
+        </div>
+      </div>
     </BaseLayout>
   );
 };

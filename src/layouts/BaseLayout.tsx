@@ -7,7 +7,7 @@ export const BaseLayout: React.FC<{ bodyBg?: any }> = ({
 }) => {
   console.debug(bodyBg);
   return (
-    <div className="root flex flex-col min-h-screen bg-blue-200 font-serif relative bg-cover bg-center">
+    <div className="root flex flex-col min-h-screen text-gray-800 bg-blue-200 font-serif relative bg-cover bg-center">
       <Header />
       <main className="flex-grow">
         <div className="container mx-auto flex p-4">{children}</div>
