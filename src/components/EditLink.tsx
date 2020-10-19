@@ -7,7 +7,7 @@ export interface EditLinkProps {
 export const EditLink = ({ cms }: EditLinkProps) => {
   return (
     <button onClick={() => cms.toggle()}>
-      {cms.enabled ? "Exit Edit Mode" : "Edit This Site"}
+      {cms.enabled ? "Exit edit mode" : "Edit"}
     </button>
   );
 };
