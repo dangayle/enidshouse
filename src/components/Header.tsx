@@ -1,4 +1,5 @@
-import Button from "./Button";
+import React from "react";
+import { Button } from "./Button";
 
 const Header = () => {
   return (
@@ -12,7 +13,7 @@ const Header = () => {
           />
         </div>
         <nav className="ml-auto text-sm md:text-base">
-          <ul className="flex">
+          <ul className="flex items-center">
             <li className="pl-4">About</li>
             <li className="pl-4">Blog</li>
             <li className="pl-4">

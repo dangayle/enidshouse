@@ -10,7 +10,7 @@ export const BaseLayout: React.FC<{ bodyBg?: any }> = ({
     <div className="root flex flex-col min-h-screen text-gray-800 bg-blue-200 font-serif relative bg-cover bg-center">
       <Header />
       <main className="flex-grow">
-        <div className="container mx-auto flex p-4">{children}</div>
+        <div className="container mx-auto flex p-1 md:p-2">{children}</div>
       </main>
       <Footer />
       <div className="absolute inset-0 h-auto" style={{ zIndex: -1 }}>

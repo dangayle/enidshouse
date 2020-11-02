@@ -1,4 +1,4 @@
-import Head from "next/head";
+import React from "react";
 import { useCMS, usePlugin } from "tinacms";
 import {
   useGithubJsonForm,
@@ -7,7 +7,8 @@ import {
 import { getGithubPreviewProps, parseJson } from "next-tinacms-github";
 import { GetStaticProps } from "next";
 import { BaseLayout } from "../layouts/BaseLayout";
-import Contact from "../components/Contact";
+
+import { Donate } from "../components/forms/Donate";
 
 const Home = ({ file }) => {
   const formOptions = {
@@ -24,7 +25,7 @@ const Home = ({ file }) => {
           <h1 className="text-2xl lg:text-4xl xl:text-6xl mb-8 text-center">
             {data.title}
           </h1>
-          <Contact />
+          <Donate />
         </div>
       </div>
     </BaseLayout>

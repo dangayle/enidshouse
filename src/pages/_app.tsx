@@ -8,8 +8,14 @@ import {
 } from "react-tinacms-github";
 import { onLogin } from "../utilities/onLogin";
 import { onLogout } from "../utilities/onLogout";
-
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 import "../styles/styles.css";
+
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_PUBLISHABLE_KEY);
+
+console.debug(process.env.NEXT_PUBLIC_PUBLISHABLE_KEY);
+console.debug(process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID);
 export default class Site extends App {
   cms: TinaCMS;
 
@@ -19,9 +25,9 @@ export default class Site extends App {
     const github = new GithubClient({
       proxy: "/api/proxy-github",
       authCallbackRoute: "/api/create-github-access-token",
-      clientId: process.env.GITHUB_CLIENT_ID,
-      baseRepoFullName: process.env.REPO_FULL_NAME,
-      baseBranch: process.env.BASE_BRANCH,
+      clientId: process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID,
+      baseRepoFullName: process.env.NEXT_PUBLIC_REPO_FULL_NAME,
+      baseBranch: process.env.NEXT_PUBLIC_BASE_BRANCH,
     });
 
     this.cms = new TinaCMS({
@@ -38,14 +44,16 @@ export default class Site extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <TinaProvider cms={this.cms}>
-        <TinacmsGithubProvider
-          onLogin={onLogin}
-          onLogout={onLogout}
-          error={pageProps.error}>
-          <Component {...pageProps} />
-        </TinacmsGithubProvider>
-      </TinaProvider>
+      <Elements stripe={stripePromise}>
+        <TinaProvider cms={this.cms}>
+          <TinacmsGithubProvider
+            onLogin={onLogin}
+            onLogout={onLogout}
+            error={pageProps.error}>
+            <Component {...pageProps} />
+          </TinacmsGithubProvider>
+        </TinaProvider>
+      </Elements>
     );
   }
 }
