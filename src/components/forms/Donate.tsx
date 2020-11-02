@@ -112,7 +112,6 @@ export const Donate = () => {
     <BasicCard>
       {!success ? (
         <form className="p-2" onSubmit={onSubmit}>
-          <pre>{currency(watch("amount")).intValue}</pre>
           <h2 className="p-2 text-2xl text-center">
             Make a difference. Please donate.
           </h2>
