@@ -10,7 +10,12 @@ export const Page = ({ children }) => {
         </div>
       </div>
       <style jsx={true} global={true}>{`
-          .content p {margin-bottom:1rem;}
+          .content h1, .content h2 {font-weight: bold}
+          .content p, .content ul {margin-bottom:1rem;}
+          .content ul{
+            padding-left: 2rem;
+          }
+          .content li {list-style-type: disc; margin-bottom: .5rem;}
           }
         `}</style>
     </BaseLayout>

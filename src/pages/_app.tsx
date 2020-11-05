@@ -14,8 +14,6 @@ import "../styles/styles.css";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_PUBLISHABLE_KEY);
 
-console.debug(process.env.NEXT_PUBLIC_PUBLISHABLE_KEY);
-console.debug(process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID);
 export default class Site extends App {
   cms: TinaCMS;
 
