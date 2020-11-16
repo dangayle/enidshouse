@@ -57,7 +57,6 @@ export const Donate = () => {
   const onSubmit = handleSubmit<FormData>(
     async ({ fullName, email, amount }) => {
       setProcessingTo(true);
-      console.log(fullName, email, amount);
 
       const billingDetails = {
         name: fullName,
@@ -96,6 +95,12 @@ export const Donate = () => {
         }
 
         toggleSuccess();
+        const { data: clientSecret } = await axios.post(
+          "/api/payment-intents",
+          {
+            amount: currency(amount).intValue,
+          }
+        );
       } catch (err) {
         setCheckoutError(err.message);
       }
