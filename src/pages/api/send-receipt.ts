@@ -2,7 +2,6 @@ import mail from "@sendgrid/mail";
 import dayjs from "dayjs";
 import LocalizedFormat from "dayjs/plugin/localizedFormat";
 
-
 mail.setApiKey(process.env.SENDGRID_API_KEY);
 dayjs.extend(LocalizedFormat)
 
