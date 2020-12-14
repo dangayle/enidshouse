@@ -20,7 +20,9 @@ export default async (req, res) => {
           
           mail.send(msg).then(
             ()=>res.status(200).send(msg)
-          );
+          ).catch((err)=>
+            console.debug(err.message)
+          )
       } catch (err) {
         res.status(500).json({ statusCode: 500, message: err.message });
       }
