@@ -95,12 +95,6 @@ export const Donate = () => {
         }
 
         toggleSuccess();
-        const { data: clientSecret } = await axios.post(
-          "/api/payment-intents",
-          {
-            amount: currency(amount).intValue,
-          }
-        );
       } catch (err) {
         setCheckoutError(err.message);
       }
