@@ -18,6 +18,7 @@ export default async (req, res) => {
               name, amount, date: dayjs().format('LLLL')
             },
           };
+          console.debug(msg)
           mail.send(msg);
           res.status(200).send(msg);
         

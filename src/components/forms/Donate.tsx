@@ -94,6 +94,12 @@ export const Donate = () => {
           return;
         }
 
+        const { data } = await axios.post("/api/send-receipt", {
+          name: fullName,
+          email,
+          amount,
+        });
+
         toggleSuccess();
       } catch (err) {
         setCheckoutError(err.message);
@@ -136,6 +142,7 @@ export const Donate = () => {
             name={"amount"}
             ref={register({ required: true })}
             type="number"
+            step=".01"
           />
           {errors.amount && (
             <span className="text-red-900 p-2" role="alert">
