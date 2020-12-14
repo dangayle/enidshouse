@@ -17,10 +17,10 @@ export default async (req, res) => {
               name, amount, date: dayjs().format('LLLL')
             },
           };
-          console.debug(msg)
-          mail.send(msg);
-          res.status(200).send(msg);
-        
+          
+          mail.send(msg).then(
+            ()=>res.status(200).send(msg)
+          );
       } catch (err) {
         res.status(500).json({ statusCode: 500, message: err.message });
       }
