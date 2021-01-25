@@ -9,7 +9,7 @@ export const Page = ({ children }) => {
           <div className="content px-4 py-5 sm:p-6">{children}</div>
         </div>
       </div>
-      <style jsx={true} global={true}>{`
+      <style jsx global>{`
           .content h1, .content h2 {font-weight: bold}
           .content p, .content ul {margin-bottom:1rem;}
           .content ul{

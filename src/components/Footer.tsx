@@ -1,10 +1,7 @@
 import Link from "next/link";
 import React from "react";
-import { useCMS } from "tinacms";
-import { EditLink } from "../components/EditLink";
 
 const Footer = () => {
-  const cms = useCMS();
   return (
     <footer className="mt-auto bg-white bg-opacity-50 text-xs font-sans text-gray-700">
       <div className="container mx-auto flex p-4">
@@ -23,9 +20,6 @@ const Footer = () => {
               Unsplash
             </a>
           </span>
-        </div>
-        <div className="ml-auto">
-          <EditLink cms={cms} />
         </div>
       </div>
     </footer>
