@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 import { Button } from "../components/Button";
 import { Page } from "../layouts/Page";
@@ -8,7 +9,24 @@ const About = () => {
     <Page>
       <h1 className="font-bold text-3xl mb-4">About Enid's House</h1>
 
+      <div className="mb-4">
+        <video controls>
+          <source
+            src={`https://d8jdrp2ozcilb.cloudfront.net/enidshouse.mp4`}
+            type="video/mp4"
+          />
+        </video>
+      </div>
+      <div className="w-full md:w-1/3 mb-4 md:mb-0 md:mr-4 md:float-left">
+        <Image
+          src="/about-us.jpg"
+          width={1294}
+          height={1346}
+          alt="photo of Ryan Mallory and Nikki Benson"
+        />
+      </div>
       <h2 className="font-bold text-xl">What is Enid's House?</h2>
+
       <p>
         Enid's house is a non-profit organization dedicated to supporting people
         recovering from substance abuse and mental health issues.
