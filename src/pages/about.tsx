@@ -16,7 +16,10 @@ const About = () => {
           content="Enid's house is a non-profit organization dedicated to supporting
           people recovering from substance abuse and mental health issues."
         />
-        <meta property="og:image" content="/enid.jpg" />
+        <meta
+          property="og:image"
+          content="https://enidshouse.org/_next/image?url=%2Fenid.jpg&w=3840&q=75"
+        />
         <meta
           property="og:video"
           content="https://d8jdrp2ozcilb.cloudfront.net/enidshouse.mp4"
