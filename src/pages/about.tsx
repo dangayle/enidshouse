@@ -10,6 +10,13 @@ const About = () => {
     <Page>
       <Head>
         <title>About Enid's House</title>
+        <meta property="og:title" content="What is Enid's House?" />
+        <meta
+          property="og:description"
+          content="Enid's house is a non-profit organization dedicated to supporting
+          people recovering from substance abuse and mental health issues."
+        />
+        <meta property="og:image" content="/enid.jpg" />
       </Head>
       <h1 className="font-bold text-3xl mb-4">About Enid's House</h1>
 

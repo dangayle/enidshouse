@@ -9,6 +9,12 @@ const Home = () => {
     <BaseLayout bodyBg="/welsh-lakelands.jpg">
       <Head>
         <title>Enid's House</title>
+        <meta property="og:title" content="Enid's House" />
+        <meta
+          property="og:description"
+          content="A house made with, and abounding in, unconditional love."
+        />
+        <meta property="og:image" content="/enid.jpg" />
       </Head>
       <div className="flex">
         <div className="lg:ml-auto lg:w-2/3 w-full p-8">
