@@ -17,6 +17,10 @@ const About = () => {
           people recovering from substance abuse and mental health issues."
         />
         <meta property="og:image" content="/enid.jpg" />
+        <meta
+          property="og:video"
+          content="https://d8jdrp2ozcilb.cloudfront.net/enidshouse.mp4"
+        />
       </Head>
       <h1 className="font-bold text-3xl mb-4">About Enid's House</h1>
 
